@@ -2429,3 +2429,39 @@ void MainWindow::on_actionEnglish_triggered()
 {
     HinFlag = 0 , SanFlag = 0;
 }
+
+void MainWindow::on_actionBold_triggered()
+{
+    ui->textBrowser->setFontWeight(QFont::Bold);
+}
+
+
+void MainWindow::on_actionUnbold_triggered()
+{
+    ui->textBrowser->setFontWeight(QFont::Normal);
+}
+
+
+void MainWindow::on_actionSubscript_triggered()
+{
+    QString s = ui->textBrowser->textCursor().selectedText();
+    QTextCharFormat format;
+    QString sformat = "<sub>" + s + "</sub>";
+    ui->textBrowser->textCursor().insertHtml(sformat);
+}
+
+
+void MainWindow::on_actionSuperscript_triggered()
+{
+    QString s = ui->textBrowser->textCursor().selectedText();
+    QTextCharFormat format;
+    QString sformat = "<sup>" + s + "</sup>";
+    ui->textBrowser->textCursor().insertHtml(sformat);
+}
+
+
+void MainWindow::on_actionRegular_triggered()
+{
+    QString s = ui->textBrowser->textCursor().selectedText();
+    ui->textBrowser->textCursor().insertText(s);
+}
